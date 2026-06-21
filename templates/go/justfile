@@ -1,0 +1,11 @@
+fmt:
+    gofmt -w .
+
+test:
+    go test ./...
+
+lint:
+    golangci-lint run
+
+tidy:
+    go mod tidy

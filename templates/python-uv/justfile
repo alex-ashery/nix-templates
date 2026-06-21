@@ -1,0 +1,14 @@
+init:
+    uv init
+
+sync:
+    uv sync
+
+fmt:
+    ruff format .
+
+lint:
+    ruff check .
+
+test:
+    uv run pytest
