@@ -4,14 +4,15 @@
 , shellHook ? ""
 }:
 
-pkgs.mkShell {
+import ./base.nix {
+  inherit pkgs extraPackages;
+
   packages = with pkgs; [
     pythonPackage
     uv
     ruff
     pyright
-    just
-  ] ++ extraPackages;
+  ];
 
   shellHook = ''
     export UV_PROJECT_ENVIRONMENT="$PWD/.venv"

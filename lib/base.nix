@@ -6,7 +6,10 @@
 }:
 
 pkgs.mkShell {
-  packages = packages ++ extraPackages;
+  packages = (with pkgs; [
+    pre-commit
+    just
+  ]) ++ packages ++ extraPackages;
 
   inherit env;
 

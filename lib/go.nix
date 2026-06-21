@@ -4,7 +4,9 @@
 , shellHook ? ""
 }:
 
-pkgs.mkShell {
+import ./base.nix {
+  inherit pkgs extraPackages;
+
   packages = with pkgs; [
     goPackage
     gopls
@@ -12,8 +14,7 @@ pkgs.mkShell {
     golangci-lint
     gotools
     go-tools
-    just
-  ] ++ extraPackages;
+  ];
 
   shellHook = ''
     mkdir -p .go/bin .go/pkg .go/cache
